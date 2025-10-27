@@ -27,3 +27,13 @@ export interface CustomSelectProps {
   className?: string;
   style?: React.CSSProperties;
 }
+
+// Типы для батч-запросов пользователей
+export interface UsersRequest {
+  ids: string[];
+}
+
+export interface UsersResponse {
+  users: User[];
+  total: number;
+}
