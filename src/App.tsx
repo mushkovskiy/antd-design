@@ -1,9 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, Link } from 'react-router-dom';
 import { ConfigProvider, Layout, Menu } from 'antd';
-import { AppstoreOutlined, CloudUploadOutlined } from '@ant-design/icons';
+import { AppstoreOutlined, CloudUploadOutlined, CloudDownloadOutlined } from '@ant-design/icons';
 import CustomSelectDemo from './pages/CustomSelectDemo';
 import { BatchMutationDemo } from './pages/BatchMutationDemo';
+import { BatchQueryDemo } from './pages/BatchQueryDemo';
 import 'antd/dist/reset.css';
 
 const { Header, Content } = Layout;
@@ -40,6 +41,11 @@ const App: React.FC = () => {
                   icon: <CloudUploadOutlined />,
                   label: <Link to="/batch-mutation-demo">Batch Mutation</Link>,
                 },
+                {
+                  key: 'batch-query-demo',
+                  icon: <CloudDownloadOutlined />,
+                  label: <Link to="/batch-query-demo">Batch Query</Link>,
+                },
               ]}
             />
           </Header>
@@ -48,6 +54,7 @@ const App: React.FC = () => {
               <Route path="/" element={<Navigate to="/custom-select-demo" replace />} />
               <Route path="/custom-select-demo" element={<CustomSelectDemo />} />
               <Route path="/batch-mutation-demo" element={<BatchMutationDemo />} />
+              <Route path="/batch-query-demo" element={<BatchQueryDemo />} />
             </Routes>
           </Content>
         </Layout>
