@@ -1,0 +1,1064 @@
+{
+  "content": [
+    {
+      "id": "c5801bcc-1471-43c7-8496-49019edb20a0",
+      "tbId": "10",
+      "planBudget": null,
+      "quarter": "Q1",
+      "year": "2026",
+      "customer": "customer",
+      "aptrBudgetGosbs": [
+        {
+          "id": "74ca6e71-4330-4060-8e06-29e8891051f0",
+          "gosbId": "9999",
+          "planBidget": null,
+          "quarter": "Q1",
+          "year": "2026",
+          "customer": "customer",
+          "aptrBudgetObjects": [],
+          "aptrProjects": []
+        },
+        {
+          "id": "d868c3c4-4d01-4038-89eb-69f660594ac4",
+          "gosbId": "1000",
+          "planBidget": "100000",
+          "quarter": "Q1",
+          "year": "2026",
+          "customer": "customer",
+          "aptrBudgetObjects": [
+            {
+              "id": "86b7f1e8-df12-4544-b3db-b7dc6c17d6df",
+              "object": "банк",
+              "planBidget": null,
+              "quarter": "Q1",
+              "year": "2026",
+              "customer": "customer",
+              "aptrProjects": []
+            },
+            {
+              "id": "50a1c555-764c-4374-8f06-dbbac94314c8",
+              "object": "банк",
+              "planBidget": "100000",
+              "quarter": "Q1",
+              "year": "2026",
+              "customer": "customer",
+              "aptrProjects": []
+            },
+            {
+              "id": "607a4ef3-2d43-4431-ab11-aaa803d3c64d",
+              "object": "банк",
+              "planBidget": "200000",
+              "quarter": "Q1",
+              "year": "2026",
+              "customer": "test",
+              "aptrProjects": [
+                {
+                  "id": "a0650ebe-dbfa-42b6-abca-4abb150b4bbd",
+                  "number": "ТР100010",
+                  "status": "NEW",
+                  "serviceId": "123",
+                  "address": "Московская ул.",
+                  "object": "Московский банк",
+                  "aptrObjectId": "607a4ef3-2d43-4431-ab11-aaa803d3c64d",
+                  "tbId": "20",
+                  "aptrTbId": "742c3664-a0ef-468f-9df9-9b50c433c8ee",
+                  "gosbId": "1000",
+                  "aptrGosbId": "d868c3c4-4d01-4038-89eb-69f660594ac4",
+                  "floor": "4",
+                  "room": "8",
+                  "year": "2026",
+                  "quarter": "Q4",
+                  "customer": "Заказчик",
+                  "typeRepair": "Ремонт",
+                  "info": "Ремонт",
+                  "summ": 110000000,
+                  "dtEnd": null,
+                  "author": "123456",
+                  "files": []
+                }
+              ]
+            },
+            {
+              "id": "e8a2eece-fde2-45e8-97fc-6d4e97ad52e9",
+              "object": "банк",
+              "planBidget": null,
+              "quarter": "Q1",
+              "year": "2026",
+              "customer": "some_test_cutomer",
+              "aptrProjects": [
+                {
+                  "id": "3bc16197-0be6-4e90-bd1e-bac948620270",
+                  "number": "ТР100002",
+                  "status": "NEW",
+                  "serviceId": "123",
+                  "address": "Московская ул.",
+                  "object": "Московский банк",
+                  "aptrObjectId": "e8a2eece-fde2-45e8-97fc-6d4e97ad52e9",
+                  "tbId": "12",
+                  "aptrTbId": "cb9d04d7-b1dc-4d79-97dd-1708ded18f45",
+                  "gosbId": "3000",
+                  "aptrGosbId": "e1d68a51-86d0-4b85-9c04-1a3382adb4d4",
+                  "floor": "7",
+                  "room": "112",
+                  "year": "2026",
+                  "quarter": "Q2",
+                  "customer": "Заказчик",
+                  "typeRepair": "Ремонт",
+                  "info": "Ремонт",
+                  "summ": 30000000,
+                  "dtEnd": null,
+                  "author": "123456",
+                  "files": [
+                    {
+                      "fileId": "4b209422-986f-4424-a452-d08385a01ed8",
+                      "fileName": "file2.txt"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "aptrProjects": [
+            {
+              "id": "43b4d1bf-f123-422e-b35d-3258ccfa7f53",
+              "number": "ТР100000",
+              "status": "NEW",
+              "serviceId": "123",
+              "address": "Московская ул.",
+              "object": "Московский банк",
+              "aptrObjectId": "c45d6d6e-ac42-48c0-93f9-0d4367637544",
+              "tbId": "10",
+              "aptrTbId": "c5801bcc-1471-43c7-8496-49019edb20a0",
+              "gosbId": "1000",
+              "aptrGosbId": "d868c3c4-4d01-4038-89eb-69f660594ac4",
+              "floor": "1",
+              "room": "1",
+              "year": "2026",
+              "quarter": "Q1",
+              "customer": "Заказчик",
+              "typeRepair": "Ремонт",
+              "info": "Ремонт",
+              "summ": 10000000,
+              "dtEnd": null,
+              "author": "123456",
+              "files": []
+            },
+            {
+              "id": "23deeb0d-3a81-410e-91a1-1a6117155c1b",
+              "number": "ТР100009",
+              "status": "NEW",
+              "serviceId": "123",
+              "address": "Московская ул.",
+              "object": "Московский банк",
+              "aptrObjectId": "b97c6872-ae4c-4c7f-8ffd-1eac485e99ae",
+              "tbId": "19",
+              "aptrTbId": "8e64b7df-c026-41be-b18c-7abf4c6f4622",
+              "gosbId": "1000",
+              "aptrGosbId": "d868c3c4-4d01-4038-89eb-69f660594ac4",
+              "floor": "10",
+              "room": "8",
+              "year": "2026",
+              "quarter": "Q3",
+              "customer": "Заказчик",
+              "typeRepair": "Ремонт",
+              "info": "Ремонт",
+              "summ": 100000000,
+              "dtEnd": null,
+              "author": "123456",
+              "files": []
+            },
+            {
+              "id": "a0650ebe-dbfa-42b6-abca-4abb150b4bbd",
+              "number": "ТР100010",
+              "status": "NEW",
+              "serviceId": "123",
+              "address": "Московская ул.",
+              "object": "Московский банк",
+              "aptrObjectId": "607a4ef3-2d43-4431-ab11-aaa803d3c64d",
+              "tbId": "20",
+              "aptrTbId": "742c3664-a0ef-468f-9df9-9b50c433c8ee",
+              "gosbId": "1000",
+              "aptrGosbId": "d868c3c4-4d01-4038-89eb-69f660594ac4",
+              "floor": "4",
+              "room": "8",
+              "year": "2026",
+              "quarter": "Q4",
+              "customer": "Заказчик",
+              "typeRepair": "Ремонт",
+              "info": "Ремонт",
+              "summ": 110000000,
+              "dtEnd": null,
+              "author": "123456",
+              "files": []
+            },
+            {
+              "id": "7371d8d1-18da-4ce7-a7bf-992c794c5bdb",
+              "number": "ТР100011",
+              "status": "NEW",
+              "serviceId": "123",
+              "address": "Московская ул.",
+              "object": "Московский банк",
+              "aptrObjectId": "f2094f7b-6e4b-4260-b80b-f949ec882d4d",
+              "tbId": "21",
+              "aptrTbId": "0df25f6f-ae41-49b0-aea7-91cfb60fd3db",
+              "gosbId": "1000",
+              "aptrGosbId": "d868c3c4-4d01-4038-89eb-69f660594ac4",
+              "floor": "9",
+              "room": "1000",
+              "year": "2026",
+              "quarter": "Q4",
+              "customer": "Заказчик",
+              "typeRepair": "Ремонт",
+              "info": "Ремонт",
+              "summ": 120000000,
+              "dtEnd": null,
+              "author": "123456",
+              "files": []
+            },
+            {
+              "id": "b207a20a-5059-46f9-a6b0-c4c61bdce268",
+              "number": "ТР100012",
+              "status": "NEW",
+              "serviceId": "123",
+              "address": "Московская ул.",
+              "object": "Московский банк",
+              "aptrObjectId": "fbec66cc-05e8-4f57-b86d-268e1cd4698b",
+              "tbId": "22",
+              "aptrTbId": "8c971d99-f6fd-4348-90c1-2966b20f620c",
+              "gosbId": "1000",
+              "aptrGosbId": "d868c3c4-4d01-4038-89eb-69f660594ac4",
+              "floor": "16",
+              "room": "17",
+              "year": "2026",
+              "quarter": "Q4",
+              "customer": "Заказчик",
+              "typeRepair": "Ремонт",
+              "info": "Ремонт",
+              "summ": 130000000,
+              "dtEnd": null,
+              "author": "123456",
+              "files": []
+            },
+            {
+              "id": "5f6afbf2-fe2c-4e2f-8a86-30cea2aad77f",
+              "number": "ТР100013",
+              "status": "NEW",
+              "serviceId": "123",
+              "address": "Московская ул.",
+              "object": "Московский банк",
+              "aptrObjectId": "b7c099c5-98b0-4985-b0d7-4031bd6d7492",
+              "tbId": "23",
+              "aptrTbId": "16b90b08-0300-4b28-b537-a5254772b829",
+              "gosbId": "1000",
+              "aptrGosbId": "d868c3c4-4d01-4038-89eb-69f660594ac4",
+              "floor": "13",
+              "room": "20",
+              "year": "2026",
+              "quarter": "Q4",
+              "customer": "Заказчик",
+              "typeRepair": "Ремонт",
+              "info": "Ремонт",
+              "summ": 140000000,
+              "dtEnd": null,
+              "author": "123456",
+              "files": []
+            }
+          ]
+        },
+        {
+          "id": "d815772a-3751-4efd-ab8c-b60f6654ca2d",
+          "gosbId": "1100",
+          "planBidget": "200000",
+          "quarter": "Q1",
+          "year": "2026",
+          "customer": "test",
+          "aptrBudgetObjects": [
+            {
+              "id": "f2094f7b-6e4b-4260-b80b-f949ec882d4d",
+              "object": "банк",
+              "planBidget": "400000",
+              "quarter": "Q1",
+              "year": "2026",
+              "customer": "customer_2",
+              "aptrProjects": [
+                {
+                  "id": "7371d8d1-18da-4ce7-a7bf-992c794c5bdb",
+                  "number": "ТР100011",
+                  "status": "NEW",
+                  "serviceId": "123",
+                  "address": "Московская ул.",
+                  "object": "Московский банк",
+                  "aptrObjectId": "f2094f7b-6e4b-4260-b80b-f949ec882d4d",
+                  "tbId": "21",
+                  "aptrTbId": "0df25f6f-ae41-49b0-aea7-91cfb60fd3db",
+                  "gosbId": "1000",
+                  "aptrGosbId": "d868c3c4-4d01-4038-89eb-69f660594ac4",
+                  "floor": "9",
+                  "room": "1000",
+                  "year": "2026",
+                  "quarter": "Q4",
+                  "customer": "Заказчик",
+                  "typeRepair": "Ремонт",
+                  "info": "Ремонт",
+                  "summ": 120000000,
+                  "dtEnd": null,
+                  "author": "123456",
+                  "files": []
+                }
+              ]
+            }
+          ],
+          "aptrProjects": []
+        },
+        {
+          "id": "203912bf-bc22-4ac0-86d6-ed4608fbebd0",
+          "gosbId": "1200",
+          "planBidget": null,
+          "quarter": "Q1",
+          "year": "2026",
+          "customer": "some_test_cutomer",
+          "aptrBudgetObjects": [
+            {
+              "id": "b7c099c5-98b0-4985-b0d7-4031bd6d7492",
+              "object": "банк",
+              "planBidget": "500000",
+              "quarter": "Q1",
+              "year": "2026",
+              "customer": "customer",
+              "aptrProjects": [
+                {
+                  "id": "950746bb-1ed3-47d1-b39d-8821633fbbbc",
+                  "number": "ТР100004",
+                  "status": "NEW",
+                  "serviceId": "123",
+                  "address": "Московская ул.",
+                  "object": "Московский банк",
+                  "aptrObjectId": "b7c099c5-98b0-4985-b0d7-4031bd6d7492",
+                  "tbId": "14",
+                  "aptrTbId": "4f8adf6a-7222-4191-9c73-53933473fe7e",
+                  "gosbId": "5000",
+                  "aptrGosbId": null,
+                  "floor": "80",
+                  "room": "165",
+                  "year": "2026",
+                  "quarter": "Q2",
+                  "customer": "Заказчик",
+                  "typeRepair": "Ремонт",
+                  "info": "Ремонт",
+                  "summ": 50000000,
+                  "dtEnd": null,
+                  "author": "123456",
+                  "files": []
+                },
+                {
+                  "id": "5f6afbf2-fe2c-4e2f-8a86-30cea2aad77f",
+                  "number": "ТР100013",
+                  "status": "NEW",
+                  "serviceId": "123",
+                  "address": "Московская ул.",
+                  "object": "Московский банк",
+                  "aptrObjectId": "b7c099c5-98b0-4985-b0d7-4031bd6d7492",
+                  "tbId": "23",
+                  "aptrTbId": "16b90b08-0300-4b28-b537-a5254772b829",
+                  "gosbId": "1000",
+                  "aptrGosbId": "d868c3c4-4d01-4038-89eb-69f660594ac4",
+                  "floor": "13",
+                  "room": "20",
+                  "year": "2026",
+                  "quarter": "Q4",
+                  "customer": "Заказчик",
+                  "typeRepair": "Ремонт",
+                  "info": "Ремонт",
+                  "summ": 140000000,
+                  "dtEnd": null,
+                  "author": "123456",
+                  "files": []
+                }
+              ]
+            }
+          ],
+          "aptrProjects": []
+        }
+      ],
+      "aptrProjects": [
+        {
+          "id": "43b4d1bf-f123-422e-b35d-3258ccfa7f53",
+          "number": "ТР100000",
+          "status": "NEW",
+          "serviceId": "123",
+          "address": "Московская ул.",
+          "object": "Московский банк",
+          "aptrObjectId": "c45d6d6e-ac42-48c0-93f9-0d4367637544",
+          "tbId": "10",
+          "aptrTbId": "c5801bcc-1471-43c7-8496-49019edb20a0",
+          "gosbId": "1000",
+          "aptrGosbId": "d868c3c4-4d01-4038-89eb-69f660594ac4",
+          "floor": "1",
+          "room": "1",
+          "year": "2026",
+          "quarter": "Q1",
+          "customer": "Заказчик",
+          "typeRepair": "Ремонт",
+          "info": "Ремонт",
+          "summ": 10000000,
+          "dtEnd": null,
+          "author": "123456",
+          "files": []
+        }
+      ]
+    },
+    {
+      "id": "9d26bad4-a233-4b80-afad-5c7d1807a803",
+      "tbId": "11",
+      "planBudget": null,
+      "quarter": "Q1",
+      "year": "2026",
+      "customer": "test",
+      "aptrBudgetGosbs": [
+        {
+          "id": "4e12d852-1589-4ddb-a154-c206819c0601",
+          "gosbId": "1300",
+          "planBidget": "400000",
+          "quarter": "Q1",
+          "year": "2026",
+          "customer": "customer_2",
+          "aptrBudgetObjects": [
+            {
+              "id": "6b944dbd-c039-4047-8131-1a11afe23b5d",
+              "object": "банк",
+              "planBidget": "600000",
+              "quarter": "Q2",
+              "year": "2026",
+              "customer": "заказчик",
+              "aptrProjects": [
+                {
+                  "id": "3f9010b9-bf54-490d-8fc5-a08c5a091287",
+                  "number": "ТР100007",
+                  "status": "NEW",
+                  "serviceId": "123",
+                  "address": "Московская ул.",
+                  "object": "Московский банк",
+                  "aptrObjectId": "6b944dbd-c039-4047-8131-1a11afe23b5d",
+                  "tbId": "17",
+                  "aptrTbId": "ee8a718b-fbfa-4b81-bf43-4e305e6f7733",
+                  "gosbId": "8000",
+                  "aptrGosbId": null,
+                  "floor": "30",
+                  "room": "234",
+                  "year": "2026",
+                  "quarter": "Q3",
+                  "customer": "Заказчик",
+                  "typeRepair": "Ремонт",
+                  "info": "Ремонт",
+                  "summ": 80000000,
+                  "dtEnd": null,
+                  "author": "123456",
+                  "files": []
+                },
+                {
+                  "id": "8b967a87-a318-4a2b-8231-503875ce6502",
+                  "number": "ТР100008",
+                  "status": "NEW",
+                  "serviceId": "123",
+                  "address": "Московская ул.",
+                  "object": "Московский банк",
+                  "aptrObjectId": "6b944dbd-c039-4047-8131-1a11afe23b5d",
+                  "tbId": "18",
+                  "aptrTbId": "807a3328-7cfb-4341-83f5-23fcc346bad1",
+                  "gosbId": "9000",
+                  "aptrGosbId": null,
+                  "floor": "26",
+                  "room": "6",
+                  "year": "2026",
+                  "quarter": "Q3",
+                  "customer": "Заказчик",
+                  "typeRepair": "Ремонт",
+                  "info": "Ремонт",
+                  "summ": 90000000,
+                  "dtEnd": null,
+                  "author": "123456",
+                  "files": []
+                }
+              ]
+            }
+          ],
+          "aptrProjects": []
+        }
+      ],
+      "aptrProjects": [
+        {
+          "id": "9aa58565-e4bd-43fa-a0de-59656ab6f471",
+          "number": "ТР100001",
+          "status": "NEW",
+          "serviceId": "123",
+          "address": "Московская ул.",
+          "object": "Московский банк",
+          "aptrObjectId": "804f8e62-6ac6-4dce-bb68-8e1d8897448b",
+          "tbId": "11",
+          "aptrTbId": "9d26bad4-a233-4b80-afad-5c7d1807a803",
+          "gosbId": "2000",
+          "aptrGosbId": "ea431f31-7aea-42b7-8e1f-f69d6bd2a5c2",
+          "floor": "3",
+          "room": "100",
+          "year": "2026",
+          "quarter": "Q1",
+          "customer": "Заказчик",
+          "typeRepair": "Ремонт",
+          "info": "Ремонт",
+          "summ": 20000000,
+          "dtEnd": null,
+          "author": "123456",
+          "files": [
+            {
+              "fileId": "5c9fe522-3a73-4342-b85d-5627d71fca21",
+              "fileName": "file.txt"
+            },
+            {
+              "fileId": "d75863ab-3f7d-4db4-9795-7bba1290793b",
+              "fileName": "file3.txt"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cb9d04d7-b1dc-4d79-97dd-1708ded18f45",
+      "tbId": "12",
+      "planBudget": null,
+      "quarter": "Q1",
+      "year": "2026",
+      "customer": "some_test_cutomer",
+      "aptrBudgetGosbs": [
+        {
+          "id": "d4f2da07-8865-4616-86b4-fc71f9a7c137",
+          "gosbId": "1400",
+          "planBidget": "500000",
+          "quarter": "Q1",
+          "year": "2026",
+          "customer": "customer",
+          "aptrBudgetObjects": [
+            {
+              "id": "d3b64e89-5b4e-4b13-9fde-ae61a964e2b5",
+              "object": "банк",
+              "planBidget": "700000",
+              "quarter": "Q2",
+              "year": "2026",
+              "customer": "тестовый заказчик",
+              "aptrProjects": []
+            }
+          ],
+          "aptrProjects": []
+        }
+      ],
+      "aptrProjects": [
+        {
+          "id": "3bc16197-0be6-4e90-bd1e-bac948620270",
+          "number": "ТР100002",
+          "status": "NEW",
+          "serviceId": "123",
+          "address": "Московская ул.",
+          "object": "Московский банк",
+          "aptrObjectId": "e8a2eece-fde2-45e8-97fc-6d4e97ad52e9",
+          "tbId": "12",
+          "aptrTbId": "cb9d04d7-b1dc-4d79-97dd-1708ded18f45",
+          "gosbId": "3000",
+          "aptrGosbId": "e1d68a51-86d0-4b85-9c04-1a3382adb4d4",
+          "floor": "7",
+          "room": "112",
+          "year": "2026",
+          "quarter": "Q2",
+          "customer": "Заказчик",
+          "typeRepair": "Ремонт",
+          "info": "Ремонт",
+          "summ": 30000000,
+          "dtEnd": null,
+          "author": "123456",
+          "files": [
+            {
+              "fileId": "4b209422-986f-4424-a452-d08385a01ed8",
+              "fileName": "file2.txt"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a7ec52b4-ccc5-4159-82ef-e3850aaff34e",
+      "tbId": "13",
+      "planBudget": null,
+      "quarter": "Q1",
+      "year": "2026",
+      "customer": "customer_2",
+      "aptrBudgetGosbs": [
+        {
+          "id": "d5468128-9cba-49a7-9dbb-b2c7377576ce",
+          "gosbId": "1500",
+          "planBidget": "600000",
+          "quarter": "Q1",
+          "year": "2026",
+          "customer": "заказчик",
+          "aptrBudgetObjects": [
+            {
+              "id": "fbec66cc-05e8-4f57-b86d-268e1cd4698b",
+              "object": "банк",
+              "planBidget": "800000",
+              "quarter": "Q2",
+              "year": "2026",
+              "customer": "заказчик 2",
+              "aptrProjects": [
+                {
+                  "id": "f7954085-bbb6-43dd-b851-68a86b53e74a",
+                  "number": "ТР100005",
+                  "status": "NEW",
+                  "serviceId": "123",
+                  "address": "Московская ул.",
+                  "object": "Московский банк",
+                  "aptrObjectId": "fbec66cc-05e8-4f57-b86d-268e1cd4698b",
+                  "tbId": "15",
+                  "aptrTbId": "3c3b2c2b-cc2e-458b-adff-4def996f78d7",
+                  "gosbId": "6000",
+                  "aptrGosbId": null,
+                  "floor": "70",
+                  "room": "678",
+                  "year": "2026",
+                  "quarter": "Q2",
+                  "customer": "Заказчик",
+                  "typeRepair": "Ремонт",
+                  "info": "Ремонт",
+                  "summ": 60000000,
+                  "dtEnd": null,
+                  "author": "123456",
+                  "files": []
+                },
+                {
+                  "id": "b207a20a-5059-46f9-a6b0-c4c61bdce268",
+                  "number": "ТР100012",
+                  "status": "NEW",
+                  "serviceId": "123",
+                  "address": "Московская ул.",
+                  "object": "Московский банк",
+                  "aptrObjectId": "fbec66cc-05e8-4f57-b86d-268e1cd4698b",
+                  "tbId": "22",
+                  "aptrTbId": "8c971d99-f6fd-4348-90c1-2966b20f620c",
+                  "gosbId": "1000",
+                  "aptrGosbId": "d868c3c4-4d01-4038-89eb-69f660594ac4",
+                  "floor": "16",
+                  "room": "17",
+                  "year": "2026",
+                  "quarter": "Q4",
+                  "customer": "Заказчик",
+                  "typeRepair": "Ремонт",
+                  "info": "Ремонт",
+                  "summ": 130000000,
+                  "dtEnd": null,
+                  "author": "123456",
+                  "files": []
+                }
+              ]
+            }
+          ],
+          "aptrProjects": []
+        }
+      ],
+      "aptrProjects": [
+        {
+          "id": "0768ceea-d444-414b-9fda-644522dfe700",
+          "number": "ТР100003",
+          "status": "NEW",
+          "serviceId": "123",
+          "address": "Московская ул.",
+          "object": "Московский банк",
+          "aptrObjectId": "1baa71b6-5074-41d1-9998-eb106a4f082c",
+          "tbId": "13",
+          "aptrTbId": "a7ec52b4-ccc5-4159-82ef-e3850aaff34e",
+          "gosbId": "4000",
+          "aptrGosbId": null,
+          "floor": "1",
+          "room": "123",
+          "year": "2026",
+          "quarter": "Q2",
+          "customer": "Заказчик",
+          "typeRepair": "Ремонт",
+          "info": "Ремонт",
+          "summ": 40000000,
+          "dtEnd": null,
+          "author": "123456",
+          "files": []
+        }
+      ]
+    },
+    {
+      "id": "4f8adf6a-7222-4191-9c73-53933473fe7e",
+      "tbId": "14",
+      "planBudget": null,
+      "quarter": "Q1",
+      "year": "2026",
+      "customer": "customer",
+      "aptrBudgetGosbs": [
+        {
+          "id": "ab692ac8-8450-4307-bc74-a74e34a12372",
+          "gosbId": "1600",
+          "planBidget": "700000",
+          "quarter": "Q1",
+          "year": "2026",
+          "customer": "тестовый заказчик",
+          "aptrBudgetObjects": [
+            {
+              "id": "ad393de0-ea98-482c-88a8-697de7e39c8a",
+              "object": "банк",
+              "planBidget": "900000",
+              "quarter": "Q2",
+              "year": "2026",
+              "customer": "хороший заказчик",
+              "aptrProjects": []
+            }
+          ],
+          "aptrProjects": []
+        }
+      ],
+      "aptrProjects": [
+        {
+          "id": "950746bb-1ed3-47d1-b39d-8821633fbbbc",
+          "number": "ТР100004",
+          "status": "NEW",
+          "serviceId": "123",
+          "address": "Московская ул.",
+          "object": "Московский банк",
+          "aptrObjectId": "b7c099c5-98b0-4985-b0d7-4031bd6d7492",
+          "tbId": "14",
+          "aptrTbId": "4f8adf6a-7222-4191-9c73-53933473fe7e",
+          "gosbId": "5000",
+          "aptrGosbId": null,
+          "floor": "80",
+          "room": "165",
+          "year": "2026",
+          "quarter": "Q2",
+          "customer": "Заказчик",
+          "typeRepair": "Ремонт",
+          "info": "Ремонт",
+          "summ": 50000000,
+          "dtEnd": null,
+          "author": "123456",
+          "files": []
+        }
+      ]
+    },
+    {
+      "id": "3c3b2c2b-cc2e-458b-adff-4def996f78d7",
+      "tbId": "15",
+      "planBudget": null,
+      "quarter": "Q1",
+      "year": "2026",
+      "customer": "заказчик",
+      "aptrBudgetGosbs": [
+        {
+          "id": "869a92da-a97f-472a-af55-974bca3362d6",
+          "gosbId": "1700",
+          "planBidget": "800000",
+          "quarter": "Q2",
+          "year": "2026",
+          "customer": "заказчик 2",
+          "aptrBudgetObjects": [
+            {
+              "id": "804f8e62-6ac6-4dce-bb68-8e1d8897448b",
+              "object": "банк",
+              "planBidget": "1000000",
+              "quarter": "Q2",
+              "year": "2026",
+              "customer": "customer",
+              "aptrProjects": [
+                {
+                  "id": "9aa58565-e4bd-43fa-a0de-59656ab6f471",
+                  "number": "ТР100001",
+                  "status": "NEW",
+                  "serviceId": "123",
+                  "address": "Московская ул.",
+                  "object": "Московский банк",
+                  "aptrObjectId": "804f8e62-6ac6-4dce-bb68-8e1d8897448b",
+                  "tbId": "11",
+                  "aptrTbId": "9d26bad4-a233-4b80-afad-5c7d1807a803",
+                  "gosbId": "2000",
+                  "aptrGosbId": "ea431f31-7aea-42b7-8e1f-f69d6bd2a5c2",
+                  "floor": "3",
+                  "room": "100",
+                  "year": "2026",
+                  "quarter": "Q1",
+                  "customer": "Заказчик",
+                  "typeRepair": "Ремонт",
+                  "info": "Ремонт",
+                  "summ": 20000000,
+                  "dtEnd": null,
+                  "author": "123456",
+                  "files": [
+                    {
+                      "fileId": "5c9fe522-3a73-4342-b85d-5627d71fca21",
+                      "fileName": "file.txt"
+                    },
+                    {
+                      "fileId": "d75863ab-3f7d-4db4-9795-7bba1290793b",
+                      "fileName": "file3.txt"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "aptrProjects": []
+        }
+      ],
+      "aptrProjects": [
+        {
+          "id": "f7954085-bbb6-43dd-b851-68a86b53e74a",
+          "number": "ТР100005",
+          "status": "NEW",
+          "serviceId": "123",
+          "address": "Московская ул.",
+          "object": "Московский банк",
+          "aptrObjectId": "fbec66cc-05e8-4f57-b86d-268e1cd4698b",
+          "tbId": "15",
+          "aptrTbId": "3c3b2c2b-cc2e-458b-adff-4def996f78d7",
+          "gosbId": "6000",
+          "aptrGosbId": null,
+          "floor": "70",
+          "room": "678",
+          "year": "2026",
+          "quarter": "Q2",
+          "customer": "Заказчик",
+          "typeRepair": "Ремонт",
+          "info": "Ремонт",
+          "summ": 60000000,
+          "dtEnd": null,
+          "author": "123456",
+          "files": []
+        }
+      ]
+    },
+    {
+      "id": "465338c7-fb14-4444-bb26-7a41c8a66d6a",
+      "tbId": "16",
+      "planBudget": null,
+      "quarter": "Q1",
+      "year": "2026",
+      "customer": "тестовый заказчик",
+      "aptrBudgetGosbs": [
+        {
+          "id": "732272cc-2551-4d7b-93c6-fe1fe1923e96",
+          "gosbId": "1800",
+          "planBidget": "900000",
+          "quarter": "Q2",
+          "year": "2026",
+          "customer": "хороший заказчик",
+          "aptrBudgetObjects": [
+            {
+              "id": "51d75b92-d34f-4834-8c8f-de05d8584120",
+              "object": "банк",
+              "planBidget": "110000",
+              "quarter": "Q2",
+              "year": "2026",
+              "customer": "customer",
+              "aptrProjects": []
+            }
+          ],
+          "aptrProjects": []
+        }
+      ],
+      "aptrProjects": [
+        {
+          "id": "9b1a61b8-fe5f-4969-8db0-b7bb900cd4b9",
+          "number": "ТР100006",
+          "status": "NEW",
+          "serviceId": "123",
+          "address": "Московская ул.",
+          "object": "Московский банк",
+          "aptrObjectId": "b97c6872-ae4c-4c7f-8ffd-1eac485e99ae",
+          "tbId": "16",
+          "aptrTbId": "465338c7-fb14-4444-bb26-7a41c8a66d6a",
+          "gosbId": "7000",
+          "aptrGosbId": null,
+          "floor": "50",
+          "room": "937",
+          "year": "2026",
+          "quarter": "Q3",
+          "customer": "Заказчик",
+          "typeRepair": "Ремонт",
+          "info": "Ремонт",
+          "summ": 70000000,
+          "dtEnd": null,
+          "author": "123456",
+          "files": []
+        }
+      ]
+    },
+    {
+      "id": "ee8a718b-fbfa-4b81-bf43-4e305e6f7733",
+      "tbId": "17",
+      "planBudget": null,
+      "quarter": "Q2",
+      "year": "2026",
+      "customer": "заказчик 2",
+      "aptrBudgetGosbs": [
+        {
+          "id": "8fe6705e-ce31-4d5d-943c-a90aeb537260",
+          "gosbId": "1900",
+          "planBidget": "1000000",
+          "quarter": "Q2",
+          "year": "2026",
+          "customer": "customer",
+          "aptrBudgetObjects": [
+            {
+              "id": "3d280047-05c0-4d74-83c1-71296693b317",
+              "object": "банк",
+              "planBidget": null,
+              "quarter": "Q2",
+              "year": "2026",
+              "customer": "customer",
+              "aptrProjects": []
+            }
+          ],
+          "aptrProjects": []
+        }
+      ],
+      "aptrProjects": [
+        {
+          "id": "3f9010b9-bf54-490d-8fc5-a08c5a091287",
+          "number": "ТР100007",
+          "status": "NEW",
+          "serviceId": "123",
+          "address": "Московская ул.",
+          "object": "Московский банк",
+          "aptrObjectId": "6b944dbd-c039-4047-8131-1a11afe23b5d",
+          "tbId": "17",
+          "aptrTbId": "ee8a718b-fbfa-4b81-bf43-4e305e6f7733",
+          "gosbId": "8000",
+          "aptrGosbId": null,
+          "floor": "30",
+          "room": "234",
+          "year": "2026",
+          "quarter": "Q3",
+          "customer": "Заказчик",
+          "typeRepair": "Ремонт",
+          "info": "Ремонт",
+          "summ": 80000000,
+          "dtEnd": null,
+          "author": "123456",
+          "files": []
+        }
+      ]
+    },
+    {
+      "id": "807a3328-7cfb-4341-83f5-23fcc346bad1",
+      "tbId": "18",
+      "planBudget": null,
+      "quarter": "Q2",
+      "year": "2026",
+      "customer": "хороший заказчик",
+      "aptrBudgetGosbs": [
+        {
+          "id": "ea431f31-7aea-42b7-8e1f-f69d6bd2a5c2",
+          "gosbId": "2000",
+          "planBidget": "110000",
+          "quarter": "Q3",
+          "year": "2026",
+          "customer": "customer",
+          "aptrBudgetObjects": [],
+          "aptrProjects": [
+            {
+              "id": "9aa58565-e4bd-43fa-a0de-59656ab6f471",
+              "number": "ТР100001",
+              "status": "NEW",
+              "serviceId": "123",
+              "address": "Московская ул.",
+              "object": "Московский банк",
+              "aptrObjectId": "804f8e62-6ac6-4dce-bb68-8e1d8897448b",
+              "tbId": "11",
+              "aptrTbId": "9d26bad4-a233-4b80-afad-5c7d1807a803",
+              "gosbId": "2000",
+              "aptrGosbId": "ea431f31-7aea-42b7-8e1f-f69d6bd2a5c2",
+              "floor": "3",
+              "room": "100",
+              "year": "2026",
+              "quarter": "Q1",
+              "customer": "Заказчик",
+              "typeRepair": "Ремонт",
+              "info": "Ремонт",
+              "summ": 20000000,
+              "dtEnd": null,
+              "author": "123456",
+              "files": [
+                {
+                  "fileId": "5c9fe522-3a73-4342-b85d-5627d71fca21",
+                  "fileName": "file.txt"
+                },
+                {
+                  "fileId": "d75863ab-3f7d-4db4-9795-7bba1290793b",
+                  "fileName": "file3.txt"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "aptrProjects": [
+        {
+          "id": "8b967a87-a318-4a2b-8231-503875ce6502",
+          "number": "ТР100008",
+          "status": "NEW",
+          "serviceId": "123",
+          "address": "Московская ул.",
+          "object": "Московский банк",
+          "aptrObjectId": "6b944dbd-c039-4047-8131-1a11afe23b5d",
+          "tbId": "18",
+          "aptrTbId": "807a3328-7cfb-4341-83f5-23fcc346bad1",
+          "gosbId": "9000",
+          "aptrGosbId": null,
+          "floor": "26",
+          "room": "6",
+          "year": "2026",
+          "quarter": "Q3",
+          "customer": "Заказчик",
+          "typeRepair": "Ремонт",
+          "info": "Ремонт",
+          "summ": 90000000,
+          "dtEnd": null,
+          "author": "123456",
+          "files": []
+        }
+      ]
+    },
+    {
+      "id": "7084f95c-f364-4b42-8d9b-8a409b525137",
+      "tbId": "99",
+      "planBudget": null,
+      "quarter": "Q1",
+      "year": "2026",
+      "customer": "customer",
+      "aptrBudgetGosbs": [],
+      "aptrProjects": []
+    }
+  ],
+  "pageable": {
+    "pageNumber": 0,
+    "pageSize": 10,
+    "sort": {
+      "empty": false,
+      "sorted": true,
+      "unsorted": false
+    },
+    "offset": 0,
+    "paged": true,
+    "unpaged": false
+  },
+  "totalPages": 3,
+  "totalElements": 21,
+  "last": false,
+  "size": 10,
+  "number": 0,
+  "sort": {
+    "empty": false,
+    "sorted": true,
+    "unsorted": false
+  },
+  "numberOfElements": 10,
+  "first": true,
+  "empty": false
+}
