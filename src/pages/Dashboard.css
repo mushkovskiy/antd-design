@@ -1,0 +1,18 @@
+/* Remove borders between child columns in "Планирование ремонта" group */
+.dashboard-table .ant-table-thead > tr > th[colspan] {
+  border-right: 1px solid #f0f0f0;
+}
+
+.dashboard-table .ant-table-thead > tr:last-child > th {
+  border-right: none;
+}
+
+.dashboard-table .ant-table-thead > tr:last-child > th:not(:last-child) {
+  border-right: 1px solid transparent;
+}
+
+/* Style for summary row */
+.dashboard-table .ant-table-tbody > tr:last-child {
+  font-weight: 600;
+  background-color: #fafafa;
+}
