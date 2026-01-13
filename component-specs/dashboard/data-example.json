@@ -15,8 +15,7 @@
           "quarter": "Q1",
           "year": "2026",
           "customer": "customer",
-          "aptrBudgetObjects": [],
-          "aptrProjects": []
+          "aptrBudgetObjects": []
         },
         {
           "id": "d868c3c4-4d01-4038-89eb-69f660594ac4",
@@ -117,8 +116,7 @@
                 }
               ]
             }
-          ],
-          "aptrProjects": []
+          ]
         },
         {
           "id": "d815772a-3751-4efd-ab8c-b60f6654ca2d",
@@ -162,8 +160,7 @@
                 }
               ]
             }
-          ],
-          "aptrProjects": []
+          ]
         },
         {
           "id": "203912bf-bc22-4ac0-86d6-ed4608fbebd0",
@@ -231,8 +228,7 @@
                 }
               ]
             }
-          ],
-          "aptrProjects": []
+          ]
         }
       ]
     },
@@ -310,8 +306,7 @@
                 }
               ]
             }
-          ],
-          "aptrProjects": []
+          ]
         }
       ]
     },
@@ -340,8 +335,7 @@
               "customer": "тестовый заказчик",
               "aptrProjects": []
             }
-          ],
-          "aptrProjects": []
+          ]
         }
       ]
     },
@@ -419,8 +413,7 @@
                 }
               ]
             }
-          ],
-          "aptrProjects": []
+          ]
         }
       ]
     },
@@ -449,8 +442,7 @@
               "customer": "хороший заказчик",
               "aptrProjects": []
             }
-          ],
-          "aptrProjects": []
+          ]
         }
       ]
     },
@@ -513,8 +505,7 @@
                 }
               ]
             }
-          ],
-          "aptrProjects": []
+          ]
         }
       ]
     },
@@ -543,8 +534,7 @@
               "customer": "customer",
               "aptrProjects": []
             }
-          ],
-          "aptrProjects": []
+          ]
         }
       ]
     },
@@ -573,8 +563,7 @@
               "customer": "customer",
               "aptrProjects": []
             }
-          ],
-          "aptrProjects": []
+          ]
         }
       ]
     },
@@ -593,8 +582,7 @@
           "quarter": "Q3",
           "year": "2026",
           "customer": "customer",
-          "aptrBudgetObjects": [],
-          "aptrProjects": []
+          "aptrBudgetObjects": []
         }
       ]
     },

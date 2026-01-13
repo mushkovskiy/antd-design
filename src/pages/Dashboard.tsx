@@ -54,7 +54,16 @@ const Dashboard: React.FC = () => {
     return projects.length;
   };
 
-  // Calculate requirements count recursively
+  /**
+   * Recursively calculate the total number of requirements (projects) in the structure.
+   *
+   * Input: Territory GOSBs, Objects, or Projects
+   * Algorithm:
+   *   - For projects: count the number of items
+   *   - For objects: sum projects from all objects
+   *   - For GOSBs: sum projects from all objects in all GOSBs
+   * Result: Total count of projects
+   */
   const calculateRequirementsRecursive = (
     gosbs?: AptrBudgetGosb[],
     objects?: AptrBudgetObject[],
@@ -81,7 +90,7 @@ const Dashboard: React.FC = () => {
         count += calculateRequirementsRecursive(
           undefined,
           gosb.aptrBudgetObjects,
-          gosb.aptrProjects
+          undefined
         );
       });
     }
@@ -89,14 +98,29 @@ const Dashboard: React.FC = () => {
     return count;
   };
 
-  // Calculate cost (sum of summ for projects with status === "INCLUDED_AP")
+  /**
+   * Calculate cost from projects with status "INCLUDED_AP".
+   *
+   * Input: Array of projects
+   * Algorithm: Filter projects by status === "INCLUDED_AP" and sum their summ values
+   * Result: Total cost
+   */
   const calculateCost = (projects: AptrProject[]): number => {
     return projects
       .filter((project) => project.status === "INCLUDED_AP")
       .reduce((sum, project) => sum + project.summ, 0);
   };
 
-  // Calculate cost recursively
+  /**
+   * Recursively calculate the total cost in the structure.
+   *
+   * Input: Territory GOSBs, Objects, or Projects
+   * Algorithm:
+   *   - For projects: sum costs of projects with status "INCLUDED_AP"
+   *   - For objects: sum costs from all objects
+   *   - For GOSBs: sum costs from all objects in all GOSBs
+   * Result: Total cost
+   */
   const calculateCostRecursive = (
     gosbs?: AptrBudgetGosb[],
     objects?: AptrBudgetObject[],
@@ -119,7 +143,7 @@ const Dashboard: React.FC = () => {
         cost += calculateCostRecursive(
           undefined,
           gosb.aptrBudgetObjects,
-          gosb.aptrProjects
+          undefined
         );
       });
     }
@@ -132,7 +156,18 @@ const Dashboard: React.FC = () => {
     return new Intl.NumberFormat("ru-RU").format(num);
   };
 
-  // Transform territories to table rows
+  /**
+   * Transform territories data into table rows with hierarchical structure.
+   *
+   * Input: Array of Territory objects from API
+   * Algorithm:
+   *   1. For each territory, calculate requirements, cost, budget, deviation
+   *   2. Transform GOSBs into child rows with their own calculations
+   *   3. Transform Objects into child rows of GOSBs
+   *   4. Transform Projects into child rows of Objects
+   *   5. Accumulate totals for summary row
+   * Result: Object with dataSource (tree structure) and summary row
+   */
   const transformDataToTableRows = (
     territories: Territory[]
   ): { dataSource: TableRow[]; summary: TableRow } => {
@@ -311,21 +346,19 @@ const Dashboard: React.FC = () => {
           dataIndex: "cost",
           key: "cost",
           width: 150,
+          onCell: (record: TableRow) => {
+            // For project rows, show only cost value in one cell
+            if (record.isProject) {
+              return {};
+            }
+            // For other rows, span across Cost and Budget columns for ProgressBar
+            return { colSpan: 2 };
+          },
           render: (value: number, record: TableRow) => {
             if (record.isProject) {
               return <span>{formatNumber(value)}</span>;
             }
-            return null;
-          },
-        },
-        {
-          title: "Бюджет",
-          key: "budget",
-          width: 300,
-          render: (_: unknown, record: TableRow) => {
-            if (record.isProject) {
-              return null;
-            }
+            // Render ProgressBar spanning both Cost and Budget columns
             return (
               <BudgetProgressBar
                 cost={record.cost || 0}
@@ -333,6 +366,20 @@ const Dashboard: React.FC = () => {
               />
             );
           },
+        },
+        {
+          title: "Бюджет",
+          key: "budget",
+          width: 300,
+          onCell: (record: TableRow) => {
+            // For project rows, hide this column (no budget/deviation)
+            if (record.isProject) {
+              return { colSpan: 0 };
+            }
+            // For other rows, this cell is hidden because Cost column spans 2
+            return { colSpan: 0 };
+          },
+          render: () => null,
         },
         {
           title: "Отклонение",

@@ -1,14 +1,24 @@
 /* Remove borders between child columns in "Планирование ремонта" group */
-.dashboard-table .ant-table-thead > tr > th[colspan] {
-  border-right: 1px solid #f0f0f0;
+/* Target the second row of table header where child columns are */
+.dashboard-table .ant-table-thead > tr:nth-child(2) > th {
+  border-right: none !important;
 }
 
-.dashboard-table .ant-table-thead > tr:last-child > th {
-  border-right: none;
+/* Keep border only after the last child column (Отклонение) */
+.dashboard-table .ant-table-thead > tr:nth-child(2) > th:last-child {
+  border-right: 1px solid #f0f0f0 !important;
 }
 
-.dashboard-table .ant-table-thead > tr:last-child > th:not(:last-child) {
-  border-right: 1px solid transparent;
+/* Remove borders between body cells in child columns */
+.dashboard-table .ant-table-tbody > tr > td:nth-child(2),
+.dashboard-table .ant-table-tbody > tr > td:nth-child(3),
+.dashboard-table .ant-table-tbody > tr > td:nth-child(4) {
+  border-right: none !important;
+}
+
+/* Keep border after the last child column cell */
+.dashboard-table .ant-table-tbody > tr > td:nth-child(5) {
+  border-right: 1px solid #f0f0f0 !important;
 }
 
 /* Style for summary row */

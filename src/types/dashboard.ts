@@ -44,7 +44,6 @@ export interface AptrBudgetGosb {
   year: string;
   customer: string;
   aptrBudgetObjects: AptrBudgetObject[];
-  aptrProjects: AptrProject[];
 }
 
 export interface Territory {
