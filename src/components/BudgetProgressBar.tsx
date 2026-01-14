@@ -35,15 +35,14 @@ export const BudgetProgressBar: React.FC<BudgetProgressBarProps> = ({
   return (
     <div
       style={{
-        display: "flex",
+        display: "grid",
+        gridTemplateColumns: "1fr 1fr",
         alignItems: "center",
-        justifyContent: "space-between",
-        width: "265px",
+        width: "100%",
         height: "30px",
         borderRadius: "16px",
         backgroundColor:
           typeof barColor === "string" ? barColor : barColor.empty,
-        padding: "0 12px",
         position: "relative",
         overflow: "hidden",
       }}
@@ -64,7 +63,7 @@ export const BudgetProgressBar: React.FC<BudgetProgressBarProps> = ({
         />
       )}
 
-      {/* Cost value (left) */}
+      {/* Cost value (left column) */}
       <span
         style={{
           position: "relative",
@@ -72,12 +71,13 @@ export const BudgetProgressBar: React.FC<BudgetProgressBarProps> = ({
           fontSize: "12px",
           fontWeight: 500,
           color: "#000",
+          paddingLeft: "12px",
         }}
       >
         {formatNumber(cost)}
       </span>
 
-      {/* Budget value (right) */}
+      {/* Budget value (right column) */}
       <span
         style={{
           position: "relative",
@@ -85,6 +85,7 @@ export const BudgetProgressBar: React.FC<BudgetProgressBarProps> = ({
           fontSize: "12px",
           fontWeight: 500,
           color: "#000",
+          paddingLeft: "12px",
         }}
       >
         {formatNumber(budget)}

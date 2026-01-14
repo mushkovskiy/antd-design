@@ -193,13 +193,11 @@ const Dashboard: React.FC = () => {
       const gosbRows: TableRow[] = territory.aptrBudgetGosbs.map((gosb) => {
         const gosbRequirements = calculateRequirementsRecursive(
           undefined,
-          gosb.aptrBudgetObjects,
-          gosb.aptrProjects
+          gosb.aptrBudgetObjects
         );
         const gosbCost = calculateCostRecursive(
           undefined,
-          gosb.aptrBudgetObjects,
-          gosb.aptrProjects
+          gosb.aptrBudgetObjects
         );
         const gosbBudget = Number(gosb.planBidget);
         const gosbDeviation = gosbBudget - gosbCost;
@@ -308,7 +306,7 @@ const Dashboard: React.FC = () => {
       ),
       dataIndex: "name",
       key: "name",
-      width: 300,
+      width: '30%',
       render: (text: string, record: TableRow) => {
         if (record.isProject) {
           return (
@@ -334,7 +332,6 @@ const Dashboard: React.FC = () => {
           title: "Потребность",
           dataIndex: "requirements",
           key: "requirements",
-          width: 120,
           render: (value: number, record: TableRow) => (
             <span style={{ fontWeight: record.isSummary ? 600 : 400 }}>
               {value}
@@ -345,7 +342,6 @@ const Dashboard: React.FC = () => {
           title: "Стоимость",
           dataIndex: "cost",
           key: "cost",
-          width: 150,
           onCell: (record: TableRow) => {
             // For project rows, show only cost value in one cell
             if (record.isProject) {
@@ -369,8 +365,8 @@ const Dashboard: React.FC = () => {
         },
         {
           title: "Бюджет",
+        
           key: "budget",
-          width: 300,
           onCell: (record: TableRow) => {
             // For project rows, hide this column (no budget/deviation)
             if (record.isProject) {
@@ -384,7 +380,6 @@ const Dashboard: React.FC = () => {
         {
           title: "Отклонение",
           key: "deviation",
-          width: 150,
           render: (_: unknown, record: TableRow) => {
             if (record.isProject) {
               return null;
@@ -411,6 +406,7 @@ const Dashboard: React.FC = () => {
           },
         },
       ],
+      width: '70%',
     },
   ];
 
