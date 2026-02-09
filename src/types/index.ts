@@ -1,4 +1,4 @@
-import type { SelectProps } from 'antd';
+import type { SelectProps, FormInstance } from 'antd';
 // Тип для пользователя
 export interface User {
   id: string;
@@ -36,4 +36,10 @@ export interface UsersRequest {
 export interface UsersResponse {
   users: User[];
   total: number;
+}
+
+export interface DynamicInputListProps {
+  form: FormInstance;
+  name: string;
+  label: string;
 }
