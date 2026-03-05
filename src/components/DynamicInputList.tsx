@@ -6,7 +6,6 @@ import type { DynamicInputListProps } from '../types';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const DynamicInputList: React.FC<DynamicInputListProps> = ({ form: _form, name, label }) => {
   return (
-    <Form.Item label={label} colon={false}>
       <Form.List name={name} initialValue={['']}>
         {(fields, { add, remove }) => (
           <>
@@ -26,6 +25,7 @@ const DynamicInputList: React.FC<DynamicInputListProps> = ({ form: _form, name, 
 
               return (
                 <Form.Item
+                label={label}
                   {...field}
                   style={index > 0 ? { marginTop: 8, marginBottom: 0 } : { marginBottom: 0 }}
                 >
@@ -36,7 +36,6 @@ const DynamicInputList: React.FC<DynamicInputListProps> = ({ form: _form, name, 
           </>
         )}
       </Form.List>
-    </Form.Item>
   );
 };
 

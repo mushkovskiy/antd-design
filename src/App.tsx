@@ -1,12 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, Link } from 'react-router-dom';
 import { ConfigProvider, Layout, Menu } from 'antd';
-import { AppstoreOutlined, CloudUploadOutlined, CloudDownloadOutlined, DashboardOutlined, UnorderedListOutlined } from '@ant-design/icons';
+import { AppstoreOutlined, CloudUploadOutlined, CloudDownloadOutlined, DashboardOutlined, UnorderedListOutlined, PictureOutlined } from '@ant-design/icons';
 import CustomSelectDemo from './pages/CustomSelectDemo';
 import { BatchMutationDemo } from './pages/BatchMutationDemo';
 import { BatchQueryDemo } from './pages/BatchQueryDemo';
 import Dashboard from './pages/Dashboard';
 import DynamicInputListDemo from './pages/DynamicInputListDemo';
+import GalleryDemo from './pages/GalleryDemo';
 import 'antd/dist/reset.css';
 
 const { Header, Content } = Layout;
@@ -49,6 +50,11 @@ const App: React.FC = () => {
                   label: <Link to="/dynamic-input-list-demo">Dynamic Inputs</Link>,
                 },
                 {
+                  key: 'gallery-demo',
+                  icon: <PictureOutlined />,
+                  label: <Link to="/gallery-demo">Gallery</Link>,
+                },
+                {
                   key: 'batch-mutation-demo',
                   icon: <CloudUploadOutlined />,
                   label: <Link to="/batch-mutation-demo">Batch Mutation</Link>,
@@ -67,6 +73,7 @@ const App: React.FC = () => {
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/custom-select-demo" element={<CustomSelectDemo />} />
               <Route path="/dynamic-input-list-demo" element={<DynamicInputListDemo />} />
+              <Route path="/gallery-demo" element={<GalleryDemo />} />
               <Route path="/batch-mutation-demo" element={<BatchMutationDemo />} />
               <Route path="/batch-query-demo" element={<BatchQueryDemo />} />
             </Routes>
