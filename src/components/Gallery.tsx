@@ -48,6 +48,24 @@ const ScrollOverlay = styled.div<{ cursor: 'w-resize' | 'e-resize' }>`
   cursor: ${({ cursor }) => cursor};
 `;
 
+const RemainingBadge = styled.div`
+  position: relative;
+  width: ${THUMB_WIDTH}px;
+  height: ${THUMB_HEIGHT}px;
+  flex-shrink: 0;
+  margin-left: -${THUMB_WIDTH}px;
+  z-index: ${MAX_VISIBLE + 3};
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 8px;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 100%);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+`;
+
 const Gallery: React.FC<GalleryProps> = ({ images }) => {
   const [startIndex, setStartIndex] = useState(0);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -97,9 +115,17 @@ const Gallery: React.FC<GalleryProps> = ({ images }) => {
             {isOverlayMode && isRightEdge && canScrollRight && (
               <ScrollOverlay cursor="e-resize" onClick={scrollRight} />
             )}
+
           </ThumbWrapper>
         );
       })}
+
+      {/* Remaining count badge */}
+      {isOverlayMode && canScrollRight && (
+        <RemainingBadge>
+          +{images.length - (startIndex + MAX_VISIBLE)}
+        </RemainingBadge>
+      )}
     </Container>
   );
 };
