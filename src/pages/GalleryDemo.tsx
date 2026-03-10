@@ -7,13 +7,13 @@ const { Title, Paragraph, Text } = Typography;
 // 8 images — grid mode (≤ 10)
 const GRID_IMAGES = Array.from(
   { length: 8 },
-  (_, i) => `https://picsum.photos/seed/grid${i + 1}/80/60`,
+  () => `https://picsum.photos/200`,
 );
 
 // 15 images — overlay mode (> 10)
 const OVERLAY_IMAGES = Array.from(
   { length: 15 },
-  (_, i) => `https://picsum.photos/seed/overlay${i + 1}/80/60`,
+  () => `https://picsum.photos/200`,
 );
 
 const GalleryDemo: React.FC = () => {
