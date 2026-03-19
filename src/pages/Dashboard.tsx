@@ -24,6 +24,7 @@ const Dashboard: React.FC = () => {
   const [selectedCustomer, setSelectedCustomer] = React.useState<
     string | undefined
   >(undefined);
+  const [expandedRowKeys, setExpandedRowKeys] = React.useState<string[]>([]);
 
   // Year options (current year and next year)
   const currentYear = new Date().getFullYear();
@@ -293,6 +294,21 @@ const Dashboard: React.FC = () => {
     [dataSource, summary]
   );
 
+  const isRowExpandable = (record: TableRow) =>
+    Boolean(record.children && record.children.length > 0);
+
+  const toggleRowExpansion = (record: TableRow) => {
+    if (!isRowExpandable(record)) {
+      return;
+    }
+
+    setExpandedRowKeys((prevKeys) =>
+      prevKeys.includes(record.key)
+        ? prevKeys.filter((key) => key !== record.key)
+        : [...prevKeys, record.key]
+    );
+  };
+
   // Table columns
   const columns = [
     {
@@ -307,6 +323,10 @@ const Dashboard: React.FC = () => {
       dataIndex: "name",
       key: "name",
       width: '30%',
+      onCell: (record: TableRow) => ({
+        onClick: () => toggleRowExpansion(record),
+        style: isRowExpandable(record) ? { cursor: "pointer" } : undefined,
+      }),
       render: (text: string, record: TableRow) => {
         if (record.isProject) {
           return (
@@ -463,6 +483,9 @@ const Dashboard: React.FC = () => {
         scroll={{ x: 1200 }}
         expandable={{
           defaultExpandAllRows: false,
+          expandedRowKeys,
+          showExpandColumn: false,
+          onExpandedRowsChange: (keys) => setExpandedRowKeys(keys as string[]),
         }}
       />
     </div>
