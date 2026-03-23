@@ -18,21 +18,21 @@ const ExpandableParagraph: React.FC<ExpandableParagraphProps> = ({
 }) => {
   const isControlled = expanded !== undefined;
   const [internalExpanded, setInternalExpanded] = React.useState(defaultExpanded);
-  const [isOverflowing, setIsOverflowing] = React.useState(false);
 
   const isExpanded = isControlled ? expanded : internalExpanded;
 
-  React.useEffect(() => {
-    setIsOverflowing(false);
-  }, [children, rows]);
-
   const resolveSymbol = React.useCallback(
     (nextExpanded: boolean) => {
-      if (typeof symbol === 'function') {
-        return symbol(nextExpanded);
-      }
+      const label =
+        typeof symbol === 'function'
+          ? symbol(nextExpanded)
+          : (symbol ?? DEFAULT_EXPAND_SYMBOL(nextExpanded));
 
-      return symbol ?? DEFAULT_EXPAND_SYMBOL(nextExpanded);
+      return (
+        <>
+       {label}
+        </>
+      );
     },
     [symbol],
   );
@@ -54,41 +54,19 @@ const ExpandableParagraph: React.FC<ExpandableParagraphProps> = ({
   };
 
   return (
-    <div style={{ position: 'relative' }}>
-      <div
-        aria-hidden
-        style={{
-          position: 'absolute',
-          inset: 0,
-          visibility: 'hidden',
-          pointerEvents: 'none',
-          zIndex: -1,
-        }}
-      >
-        <Paragraph
-          className={className}
-          ellipsis={{
-            rows,
-            onEllipsis: setIsOverflowing,
-          }}
-        >
-          {children}
-        </Paragraph>
-      </div>
-
-      <Paragraph
-        className={className}
-        ellipsis={{
-          rows,
-          expandable: isOverflowing ? 'collapsible' : false,
-          expanded: isExpanded,
-          symbol: resolveSymbol,
-          onExpand: handleExpand,
-        }}
-      >
-        {children}
-      </Paragraph>
-    </div>
+    <Paragraph
+      className={className}
+      ellipsis={{
+        rows,
+        expandable: 'collapsible',
+        expanded: isExpanded,
+        symbol: resolveSymbol,
+        onExpand: handleExpand,
+      
+      }}
+    >
+      {children}
+    </Paragraph>
   );
 };
 
