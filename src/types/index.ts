@@ -43,3 +43,13 @@ export interface DynamicInputListProps {
   name: string;
   label: string;
 }
+
+export interface ExpandableParagraphProps {
+  children: React.ReactNode;
+  rows?: number;
+  defaultExpanded?: boolean;
+  expanded?: boolean;
+  onExpand?: (expanded: boolean, info: { x: number; y: number }) => void;
+  symbol?: string | ((expanded: boolean) => string);
+  className?: string;
+}

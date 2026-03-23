@@ -1,13 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, Link } from 'react-router-dom';
 import { ConfigProvider, Layout, Menu } from 'antd';
-import { AppstoreOutlined, CloudUploadOutlined, CloudDownloadOutlined, DashboardOutlined, UnorderedListOutlined, PictureOutlined } from '@ant-design/icons';
+import { AppstoreOutlined, CloudUploadOutlined, CloudDownloadOutlined, DashboardOutlined, UnorderedListOutlined, PictureOutlined, AlignLeftOutlined } from '@ant-design/icons';
 import CustomSelectDemo from './pages/CustomSelectDemo';
 import { BatchMutationDemo } from './pages/BatchMutationDemo';
 import { BatchQueryDemo } from './pages/BatchQueryDemo';
 import Dashboard from './pages/Dashboard';
 import DynamicInputListDemo from './pages/DynamicInputListDemo';
 import GalleryDemo from './pages/GalleryDemo';
+import ExpandableParagraphDemo from './pages/ExpandableParagraphDemo';
 import 'antd/dist/reset.css';
 
 const { Header, Content } = Layout;
@@ -55,6 +56,11 @@ const App: React.FC = () => {
                   label: <Link to="/gallery-demo">Gallery</Link>,
                 },
                 {
+                  key: 'expandable-paragraph-demo',
+                  icon: <AlignLeftOutlined />,
+                  label: <Link to="/expandable-paragraph-demo">Expandable Paragraph</Link>,
+                },
+                {
                   key: 'batch-mutation-demo',
                   icon: <CloudUploadOutlined />,
                   label: <Link to="/batch-mutation-demo">Batch Mutation</Link>,
@@ -74,6 +80,7 @@ const App: React.FC = () => {
               <Route path="/custom-select-demo" element={<CustomSelectDemo />} />
               <Route path="/dynamic-input-list-demo" element={<DynamicInputListDemo />} />
               <Route path="/gallery-demo" element={<GalleryDemo />} />
+              <Route path="/expandable-paragraph-demo" element={<ExpandableParagraphDemo />} />
               <Route path="/batch-mutation-demo" element={<BatchMutationDemo />} />
               <Route path="/batch-query-demo" element={<BatchQueryDemo />} />
             </Routes>
