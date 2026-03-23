@@ -484,7 +484,7 @@ const Dashboard: React.FC = () => {
         expandable={{
           defaultExpandAllRows: false,
           expandedRowKeys,
-          showExpandColumn: false,
+          showExpandColumn: true,
           onExpandedRowsChange: (keys) => setExpandedRowKeys(keys as string[]),
         }}
       />
