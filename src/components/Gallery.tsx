@@ -19,10 +19,9 @@ const Container = styled.div<{ isOverlayMode: boolean }>`
   padding: ${({ isOverlayMode }) => (isOverlayMode ? '16px 24px' : '8px 0')};
 `;
 
-const ThumbWrapper = styled.div<{
+const ThumbSlot = styled.div<{
   isOverlayMode: boolean;
   isRightEdge: boolean;
-  isHovered: boolean;
   zIndex: number;
 }>`
   position: relative;
@@ -31,10 +30,25 @@ const ThumbWrapper = styled.div<{
   flex-shrink: 0;
   ${({ isOverlayMode, isRightEdge }) =>
     isOverlayMode && !isRightEdge ? `margin-right: -${OVERLAP}px;` : ''}
-  ${({ isOverlayMode, zIndex, isHovered }) =>
+  ${({ isOverlayMode, zIndex }) =>
     isOverlayMode
       ? `
     z-index: ${zIndex};
+  `
+      : ''}
+`;
+
+const ThumbWrapper = styled.div<{
+  isOverlayMode: boolean;
+  isHovered: boolean;
+}>`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: zoom-in;
+  ${({ isOverlayMode, isHovered }) =>
+    isOverlayMode
+      ? `
     transition: transform 0.2s ease;
     transform: ${isHovered ? 'scale(1.2)' : 'scale(1)'};
   `
@@ -49,7 +63,8 @@ const ScrollOverlay = styled.div<{
   top: 0;
   bottom: 0;
   ${({ side }) => (side === 'left' ? 'left: 0;' : 'right: 0;')}
-  width: 18px;
+ width: ${THUMB_WIDTH}px;
+  height: ${THUMB_HEIGHT}px;
   z-index: ${MAX_VISIBLE + 2};
   cursor: ${({ cursor }) => cursor};
 `;
@@ -104,32 +119,33 @@ const Gallery: React.FC<GalleryProps> = ({ images }) => {
           const isHovered = hoveredIndex === visibleIndex;
 
           return (
-            <ThumbWrapper
+            <ThumbSlot
               key={absoluteIndex}
               isOverlayMode={isOverlayMode}
               isRightEdge={isRightEdge}
-              isHovered={isHovered}
               zIndex={isHovered ? MAX_VISIBLE + 1 : MAX_VISIBLE - visibleIndex}
-              onMouseEnter={() => isOverlayMode && setHoveredIndex(visibleIndex)}
-              onMouseLeave={() => isOverlayMode && setHoveredIndex(null)}
-              onClick={() => openPreview(absoluteIndex)}
             >
-              <Image
-                width={THUMB_WIDTH}
-                height={THUMB_HEIGHT}
-                src={src}
-                preview={false}
-              />
+              <ThumbWrapper
+                isOverlayMode={isOverlayMode}
+                isHovered={isHovered}
+                onMouseEnter={() => isOverlayMode && setHoveredIndex(visibleIndex)}
+                onMouseLeave={() => isOverlayMode && setHoveredIndex(null)}
+                onClick={() => openPreview(absoluteIndex)}
+              >
+                <Image
+                  width={THUMB_WIDTH}
+                  height={THUMB_HEIGHT}
+                  src={src}
+                  preview={false}
+                />
+              </ThumbWrapper>
 
               {/* Overlay for left edge scroll */}
               {isOverlayMode && isLeftEdge && canScrollLeft && (
                 <ScrollOverlay
                   side="left"
                   cursor="w-resize"
-                  onClick={(event) => {
-                    event.stopPropagation();
-                    scrollLeft();
-                  }}
+                  onClick={scrollLeft}
                 />
               )}
 
@@ -138,13 +154,10 @@ const Gallery: React.FC<GalleryProps> = ({ images }) => {
                 <ScrollOverlay
                   side="right"
                   cursor="e-resize"
-                  onClick={(event) => {
-                    event.stopPropagation();
-                    scrollRight();
-                  }}
+                  onClick={scrollRight}
                 />
               )}
-            </ThumbWrapper>
+            </ThumbSlot>
           );
         })}
 
