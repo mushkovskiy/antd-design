@@ -41,9 +41,15 @@ const ThumbWrapper = styled.div<{
       : ''}
 `;
 
-const ScrollOverlay = styled.div<{ cursor: 'w-resize' | 'e-resize' }>`
+const ScrollOverlay = styled.div<{
+  cursor: 'w-resize' | 'e-resize';
+  side: 'left' | 'right';
+}>`
   position: absolute;
-  inset: 0;
+  top: 0;
+  bottom: 0;
+  ${({ side }) => (side === 'left' ? 'left: 0;' : 'right: 0;')}
+  width: 18px;
   z-index: ${MAX_VISIBLE + 2};
   cursor: ${({ cursor }) => cursor};
 `;
@@ -69,6 +75,8 @@ const RemainingBadge = styled.div`
 const Gallery: React.FC<GalleryProps> = ({ images }) => {
   const [startIndex, setStartIndex] = useState(0);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [previewVisible, setPreviewVisible] = useState(false);
+  const [previewIndex, setPreviewIndex] = useState(0);
 
   const isOverlayMode = images.length > MAX_VISIBLE;
   const visibleImages = images.slice(startIndex, startIndex + MAX_VISIBLE);
@@ -79,54 +87,86 @@ const Gallery: React.FC<GalleryProps> = ({ images }) => {
   const scrollLeft = () => setStartIndex((prev) => Math.max(0, prev - 1));
   const scrollRight = () =>
     setStartIndex((prev) => Math.min(images.length - MAX_VISIBLE, prev + 1));
+  const openPreview = (index: number) => {
+    setPreviewIndex(index);
+    setPreviewVisible(true);
+  };
 
   if (images.length === 0) return null;
 
   return (
-    <Container isOverlayMode={isOverlayMode}>
-      {visibleImages.map((src, visibleIndex) => {
-        const isLeftEdge = visibleIndex === 0;
-        const isRightEdge = visibleIndex === visibleImages.length - 1;
-        const isHovered = hoveredIndex === visibleIndex;
+    <>
+      <Container isOverlayMode={isOverlayMode}>
+        {visibleImages.map((src, visibleIndex) => {
+          const absoluteIndex = startIndex + visibleIndex;
+          const isLeftEdge = visibleIndex === 0;
+          const isRightEdge = visibleIndex === visibleImages.length - 1;
+          const isHovered = hoveredIndex === visibleIndex;
 
-        return (
-          <ThumbWrapper
-            key={startIndex + visibleIndex}
-            isOverlayMode={isOverlayMode}
-            isRightEdge={isRightEdge}
-            isHovered={isHovered}
-            zIndex={isHovered ? MAX_VISIBLE + 1 : MAX_VISIBLE - visibleIndex}
-            onMouseEnter={() => isOverlayMode && setHoveredIndex(visibleIndex)}
-            onMouseLeave={() => isOverlayMode && setHoveredIndex(null)}
-          >
-            <Image
-              width={THUMB_WIDTH}
-              height={THUMB_HEIGHT}
-              src={src}
-              preview={{ mask: false }}
-            />
+          return (
+            <ThumbWrapper
+              key={absoluteIndex}
+              isOverlayMode={isOverlayMode}
+              isRightEdge={isRightEdge}
+              isHovered={isHovered}
+              zIndex={isHovered ? MAX_VISIBLE + 1 : MAX_VISIBLE - visibleIndex}
+              onMouseEnter={() => isOverlayMode && setHoveredIndex(visibleIndex)}
+              onMouseLeave={() => isOverlayMode && setHoveredIndex(null)}
+              onClick={() => openPreview(absoluteIndex)}
+            >
+              <Image
+                width={THUMB_WIDTH}
+                height={THUMB_HEIGHT}
+                src={src}
+                preview={false}
+              />
 
-            {/* Overlay for left edge scroll */}
-            {isOverlayMode && isLeftEdge && canScrollLeft && (
-              <ScrollOverlay cursor="w-resize" onClick={scrollLeft} />
-            )}
+              {/* Overlay for left edge scroll */}
+              {isOverlayMode && isLeftEdge && canScrollLeft && (
+                <ScrollOverlay
+                  side="left"
+                  cursor="w-resize"
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    scrollLeft();
+                  }}
+                />
+              )}
 
-            {/* Overlay for right edge scroll */}
-            {isOverlayMode && isRightEdge && canScrollRight && (
-              <ScrollOverlay cursor="e-resize" onClick={scrollRight} />
-            )}
+              {/* Overlay for right edge scroll */}
+              {isOverlayMode && isRightEdge && canScrollRight && (
+                <ScrollOverlay
+                  side="right"
+                  cursor="e-resize"
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    scrollRight();
+                  }}
+                />
+              )}
+            </ThumbWrapper>
+          );
+        })}
 
-          </ThumbWrapper>
-        );
-      })}
+        {/* Remaining count badge */}
+        {isOverlayMode && canScrollRight && (
+          <RemainingBadge>
+            +{images.length - (startIndex + MAX_VISIBLE)}
+          </RemainingBadge>
+        )}
+      </Container>
 
-      {/* Remaining count badge */}
-      {isOverlayMode && canScrollRight && (
-        <RemainingBadge>
-          +{images.length - (startIndex + MAX_VISIBLE)}
-        </RemainingBadge>
-      )}
-    </Container>
+      <Image.PreviewGroup
+        items={images}
+        preview={{
+          visible: previewVisible,
+          current: previewIndex,
+          onVisibleChange: (visible) => setPreviewVisible(visible),
+          onChange: (current) => setPreviewIndex(current),
+          
+        }}
+      />
+    </>
   );
 };
 
