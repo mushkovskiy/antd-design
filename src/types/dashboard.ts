@@ -95,6 +95,7 @@ export interface TableRow {
   deviationPercent?: number;
   children?: TableRow[];
   isProject?: boolean;
+  isGosb?: boolean;
   isSummary?: boolean;
   projectNumber?: string;
   projectCustomer?: string;

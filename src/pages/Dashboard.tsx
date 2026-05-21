@@ -1,7 +1,9 @@
 import React, { useMemo } from "react";
-import { Input, Select, Table, Space } from "antd";
-import { CheckOutlined } from "@ant-design/icons";
+import { useNavigate } from "react-router-dom";
+import { Input, Select, Table, Space, Alert } from "antd";
+import { CheckOutlined, LoadingOutlined } from "@ant-design/icons";
 import { BudgetProgressBar } from "../components/BudgetProgressBar";
+import { useDashboardSearch } from "../hooks/useDashboardSearch";
 import "./Dashboard.css";
 import type {
   Territory,
@@ -12,7 +14,27 @@ import type {
 } from "../types/dashboard";
 import dashboardData from "../../component-specs/dashboard/data-example.json";
 
+const EXPANDED_KEYS_STORAGE_KEY = "dashboard:expandedRowKeys";
+const SINGLE_CLICK_DELAY_MS = 250;
+
+const toggleGosbSubtree = (gosbRow: TableRow, prev: string[]): string[] => {
+  const subtreeKeys = [
+    gosbRow.key,
+    ...(gosbRow.children ?? []).map((c) => c.key),
+  ];
+  const prevSet = new Set(prev);
+  const anyExpanded = subtreeKeys.some((k) => prevSet.has(k));
+
+  if (anyExpanded) {
+    const toRemove = new Set(subtreeKeys);
+    return prev.filter((k) => !toRemove.has(k));
+  }
+  return Array.from(new Set([...prev, ...subtreeKeys]));
+};
+
 const Dashboard: React.FC = () => {
+  const navigate = useNavigate();
+
   // Filter states (no logic yet)
   const [searchValue, setSearchValue] = React.useState("");
   const [selectedYear, setSelectedYear] = React.useState<string | undefined>(
@@ -24,7 +46,28 @@ const Dashboard: React.FC = () => {
   const [selectedCustomer, setSelectedCustomer] = React.useState<
     string | undefined
   >(undefined);
-  const [expandedRowKeys, setExpandedRowKeys] = React.useState<string[]>([]);
+  const [expandedRowKeys, setExpandedRowKeys] = React.useState<string[]>(() => {
+    try {
+      const raw = sessionStorage.getItem(EXPANDED_KEYS_STORAGE_KEY);
+      const parsed = raw ? JSON.parse(raw) : [];
+      return Array.isArray(parsed)
+        ? parsed.filter((k): k is string => typeof k === "string")
+        : [];
+    } catch {
+      return [];
+    }
+  });
+
+  React.useEffect(() => {
+    try {
+      sessionStorage.setItem(
+        EXPANDED_KEYS_STORAGE_KEY,
+        JSON.stringify(expandedRowKeys)
+      );
+    } catch {
+      // ignore quota errors
+    }
+  }, [expandedRowKeys]);
 
   // Year options (current year and next year)
   const currentYear = new Date().getFullYear();
@@ -247,6 +290,7 @@ const Dashboard: React.FC = () => {
           budget: gosbBudget,
           deviation: gosbDeviation,
           deviationPercent: Number(gosbDeviationPercent),
+          isGosb: true,
           children: objectRows.length > 0 ? objectRows : undefined,
         };
       });
@@ -283,9 +327,14 @@ const Dashboard: React.FC = () => {
     return { dataSource, summary };
   };
 
-  const { dataSource, summary } = useMemo(
-    () => transformDataToTableRows(dashboardData.content as Territory[]),
+  const territories = useMemo(
+    () => dashboardData.content as Territory[],
     []
+  );
+
+  const { dataSource, summary } = useMemo(
+    () => transformDataToTableRows(territories),
+    [territories]
   );
 
   // Add summary row to data source
@@ -309,6 +358,44 @@ const Dashboard: React.FC = () => {
     );
   };
 
+  const singleClickTimerRef = React.useRef<number | null>(null);
+
+  const handleGosbSingleClick = (record: TableRow) => {
+    if (singleClickTimerRef.current !== null) {
+      window.clearTimeout(singleClickTimerRef.current);
+    }
+    singleClickTimerRef.current = window.setTimeout(() => {
+      singleClickTimerRef.current = null;
+      toggleRowExpansion(record);
+    }, SINGLE_CLICK_DELAY_MS);
+  };
+
+  const handleGosbDoubleClick = (record: TableRow) => {
+    if (singleClickTimerRef.current !== null) {
+      window.clearTimeout(singleClickTimerRef.current);
+      singleClickTimerRef.current = null;
+    }
+    setExpandedRowKeys((prev) => toggleGosbSubtree(record, prev));
+  };
+
+  React.useEffect(() => {
+    return () => {
+      if (singleClickTimerRef.current !== null) {
+        window.clearTimeout(singleClickTimerRef.current);
+      }
+    };
+  }, []);
+
+  const handleMatchExpand = React.useCallback((ancestors: string[]) => {
+    setExpandedRowKeys((prev) => Array.from(new Set([...prev, ...ancestors])));
+  }, []);
+
+  const { isSearching, matchesCount } = useDashboardSearch({
+    query: searchValue,
+    territories,
+    onMatchExpand: handleMatchExpand,
+  });
+
   // Table columns
   const columns = [
     {
@@ -323,10 +410,28 @@ const Dashboard: React.FC = () => {
       dataIndex: "name",
       key: "name",
       width: '30%',
-      onCell: (record: TableRow) => ({
-        onClick: () => toggleRowExpansion(record),
-        style: isRowExpandable(record) ? { cursor: "pointer" } : undefined,
-      }),
+      onCell: (record: TableRow) => {
+        if (record.isProject) {
+          return {
+            onClick: () => navigate(`/project/${record.key}`),
+            style: { cursor: "pointer" },
+          };
+        }
+        if (record.isGosb) {
+          return {
+            onClick: () => handleGosbSingleClick(record),
+            onDoubleClick: () => handleGosbDoubleClick(record),
+            style: {
+              cursor: isRowExpandable(record) ? "pointer" : undefined,
+              userSelect: "none" as const,
+            },
+          };
+        }
+        return {
+          onClick: () => toggleRowExpansion(record),
+          style: isRowExpandable(record) ? { cursor: "pointer" } : undefined,
+        };
+      },
       render: (text: string, record: TableRow) => {
         if (record.isProject) {
           return (
@@ -444,6 +549,7 @@ const Dashboard: React.FC = () => {
           placeholder="Введите адрес или номер заявки"
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
+          suffix={isSearching ? <LoadingOutlined /> : <span />}
           style={{ width: 300 }}
         />
         <Select
@@ -471,6 +577,15 @@ const Dashboard: React.FC = () => {
           allowClear
         />
       </Space>
+
+      {!isSearching && matchesCount === 0 && searchValue.trim() && (
+        <Alert
+          type="info"
+          message="Ничего не найдено"
+          showIcon
+          style={{ marginBottom: 16 }}
+        />
+      )}
 
       {/* Table */}
       <Table

@@ -6,6 +6,7 @@ import CustomSelectDemo from './pages/CustomSelectDemo';
 import { BatchMutationDemo } from './pages/BatchMutationDemo';
 import { BatchQueryDemo } from './pages/BatchQueryDemo';
 import Dashboard from './pages/Dashboard';
+import ProjectMock from './pages/ProjectMock';
 import DynamicInputListDemo from './pages/DynamicInputListDemo';
 import GalleryDemo from './pages/GalleryDemo';
 import ExpandableParagraphDemo from './pages/ExpandableParagraphDemo';
@@ -77,6 +78,7 @@ const App: React.FC = () => {
             <Routes>
               <Route path="/" element={<Navigate to="/dashboard" replace />} />
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/project/:id" element={<ProjectMock />} />
               <Route path="/custom-select-demo" element={<CustomSelectDemo />} />
               <Route path="/dynamic-input-list-demo" element={<DynamicInputListDemo />} />
               <Route path="/gallery-demo" element={<GalleryDemo />} />
